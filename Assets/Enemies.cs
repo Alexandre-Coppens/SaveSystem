@@ -28,6 +28,12 @@ public class Enemies : MonoBehaviour
         
     }
 
+    public void Die()
+    {
+        SavingSystem.instance.enemies.Remove(this);
+        Destroy(gameObject);
+    }
+
     public sVector3 TosVector3(Vector3 v)
     {
         sVector3 sVector = new sVector3();

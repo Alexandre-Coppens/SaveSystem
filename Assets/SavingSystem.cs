@@ -47,8 +47,8 @@ public class SavingSystem : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S)) Save();
-        if (Input.GetKeyDown(KeyCode.L)) Load();
+        if (Input.GetKeyDown(KeyCode.O)) Save();
+        if (Input.GetKeyDown(KeyCode.P)) Load();
     }
 
     void Save()
@@ -67,6 +67,12 @@ public class SavingSystem : MonoBehaviour
 
     private void Load()
     {
+        for (int i = 0; i < enemies.Count; i ++)
+        {
+            enemies[0].Die();
+            i--;
+        }
+        enemies = new List<Enemies>();
         LoadFile();
         settings.Load(saveData.settings);
         player.Load(saveData.playerInfo);
